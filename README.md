@@ -6,7 +6,7 @@ can be integrated into the [Wagtail](https://wagtail.io/)
 
 ## Usage
 
-Install the requirements using either:
+Install the requirements:
 
 - `poetry install`
 

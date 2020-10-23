@@ -1,0 +1,33 @@
+{% extends "wagtailadmin/base.html" %}
+{% load i18n %}
+{% block titletag %}{% blocktrans %}Export{% endblocktrans %} {{ opts.verbose_name_plural|title }}{% endblock %}
+{% block content %}
+    {% trans "Export" as export_str %}
+    {% with opts.verbose_name_plural|title as model_name %}
+    {% with export_str|add:" "|add:model_name as title %}
+    {% include "wagtailadmin/shared/header.html" %}
+    {% endwith %}
+    {% endwith %}
+    <div class="nice-padding">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <ul class="fields">
+                {% for field in form %}
+                    {% include "wagtailadmin/shared/field_as_li.html" %}
+                {% endfor %}
+            </ul>
+            <input type="submit" value="{% trans 'Submit' %}" class="button">
+        </form>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    {{ block.super }}
+    {% include "wagtailadmin/pages/_editor_js.html" %}
+    {{ form.media.js }}
+{% endblock %}
+
+{% block extra_css %}
+    {{ block.super }}
+    {{ form.media.css }}
+{% endblock %}

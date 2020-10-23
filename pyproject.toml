@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "wagtail-modeladmin-export-example"
+version = "0.1.0"
+description = ""
+authors = ["Christian Franke <nobody@nowhere.ws>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+wagtail = "^2.10.2"
+Django = "^3.1.2"
+django-import-export = "^2.4.0"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.18.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
